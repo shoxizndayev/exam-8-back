@@ -4,21 +4,15 @@ const GET = `
     admin_name,
     admin_avatar,
     create_at
-  from
-    admins
-  where
-    case
+  from admins
+  where case
       when $1 > 0 then admin_id = $1
-    else true
-  end;
+    else true end;
 `;
 
 const POST = `
-  insert into
-    admins(admin_name, password, admin_avatar)
-  values
-    ($1, $2, $3)
-  returning *;
+  insert into admins(admin_name, password, admin_avatar)
+  values ($1, $2, $3) returning *;
 `;
 
 const LOGIN = `
@@ -27,8 +21,7 @@ const LOGIN = `
     admin_name,
     admin_avatar,
     create_at
-  from
-    admins
+  from admins
   where
     lower(admin_name) = lower($1)
     and password = crypt($2, password);

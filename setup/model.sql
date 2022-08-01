@@ -5,7 +5,6 @@ create database pressa;
 
 create extension pgcrypto;
 
--- admins
 drop table if exists admins;
 create table admins(
   admin_id serial primary key,
@@ -15,7 +14,6 @@ create table admins(
   create_at timestamp default current_timestamp
 );
 
--- users
 drop table if exists users;
 create table users(
   user_id serial primary key,
@@ -24,7 +22,6 @@ create table users(
   create_at timestamp default current_timestamp
 );
 
--- categories
 drop table if exists categories;
 create table categories(
   category_id serial primary key,
@@ -33,7 +30,6 @@ create table categories(
   create_at timestamp default current_timestamp
 );
 
--- sub_categories
 drop table if exists sub_categories;
 create table sub_categories(
   sub_category_id serial primary key,
@@ -43,7 +39,6 @@ create table sub_categories(
   create_at timestamp default current_timestamp
 );
 
--- organizers
 drop table if exists organizers;
 create table organizers(
   organizer_id serial primary key,
@@ -56,7 +51,6 @@ create table organizers(
   create_at timestamp default current_timestamp
 );
 
--- organizations
 drop table if exists organizations;
 create table organizations(
   organization_id serial primary key,
@@ -65,7 +59,6 @@ create table organizations(
   create_at timestamp default current_timestamp
 );
 
--- conferences
 drop table if exists conferences;
 create table conferences(
   conference_id serial primary key,
@@ -78,7 +71,6 @@ create table conferences(
   create_at timestamp default current_timestamp
 );
 
--- conference_links
 drop table if exists conference_links;
 create table conference_links(
   conference_link_id serial primary key,
@@ -87,7 +79,6 @@ create table conference_links(
   create_at timestamp default current_timestamp
 );
 
--- posts
 drop table if exists posts;
 create table posts(
   post_id serial primary key,
@@ -97,7 +88,6 @@ create table posts(
   create_at timestamp default current_timestamp
 );
 
--- post_bodys
 drop table if exists post_bodys;
 create table post_bodys(
   post_body_id serial primary key,
@@ -106,7 +96,6 @@ create table post_bodys(
   create_at timestamp default current_timestamp
 );
 
--- post_images
 drop table if exists post_images;
 create table post_images(
   post_image_id serial primary key,

@@ -2,27 +2,18 @@ import { fetch, fetchAll } from "../../lib/postgres.js";
 import query from "./query.js";
 
 const GET = async ({ adminId = 0 }) => {
-  try {
-    return await fetchAll(query.GET, adminId);
-  } catch (error) {
-    console.log(error);
-  }
+
+  return await fetchAll(query.GET, adminId);
 };
 
 const POST = async ({ username, password, avatar = null }) => {
-  try {
-    return await fetch(query.POST, username, password, avatar);
-  } catch (error) {
-    console.log(error);
-  }
+
+  return await fetch(query.POST, username, password, avatar);
 };
 
 const LOGIN = async ({ username, password }) => {
-  try {
-    return await fetch(query.LOGIN, username, password);
-  } catch (error) {
-    console.log(error);
-  }
+
+  return await fetch(query.LOGIN, username, password);
 };
 
 export default { GET, POST, LOGIN };

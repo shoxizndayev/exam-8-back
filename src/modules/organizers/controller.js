@@ -3,7 +3,7 @@ import model from "./model.js";
 import { InternalServerError, NotFoundError } from "../../lib/error.js";
 
 const GET = async (req, res, next) => {
-  try {
+  
     const organizers = await model.GET();
 
     if (organizers.length == 0) return next(new NotFoundError(404, "client error"));
@@ -13,9 +13,6 @@ const GET = async (req, res, next) => {
       message: "ok",
       data: organizers,
     });
-  } catch (error) {
-    return next(new InternalServerError(500, error.message));
-  }
 };
 
 export default { GET };

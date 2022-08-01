@@ -8,7 +8,6 @@ const imagesUpload = upload.fields([
 ]);
 
 const GET = async (req, res, next) => {
-  try {
     const posts = await model.GET(req.params, req.query);
     if (posts.length == 0) return next(new NotFoundError(404, "client error"));
 
@@ -17,13 +16,9 @@ const GET = async (req, res, next) => {
       message: "ok",
       data: posts,
     });
-  } catch (error) {
-    return next(new InternalServerError(500, error.message));
-  }
 };
 
 const POSTIMAGE = async (req, res, next) => {
-  try {
     const images = await model.POSTIMAGE(req.params, req.files);
     if (!images || images[0] == null) return next(new NotFoundError(404, "client error"));
 
@@ -32,9 +27,6 @@ const POSTIMAGE = async (req, res, next) => {
       message: "images added",
       data: images,
     });
-  } catch (error) {
-    return next(new InternalServerError(500, error.message));
-  }
 };
 
 export default { GET, POSTIMAGE, imagesUpload };

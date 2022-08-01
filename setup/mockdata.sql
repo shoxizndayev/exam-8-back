@@ -1,4 +1,3 @@
--- admins
 insert into
   admins(admin_name, password)
 values
@@ -7,20 +6,18 @@ values
     crypt('12345678', gen_salt('bf'))
   );
   
--- users
 insert into
   users(username, password)
 values
   (
-    'andrey',
-    crypt('9t4b11yi5a', gen_salt('bf'))
+    'farhod',
+    crypt('12345678', gen_salt('bf'))
   ),
   (
-    'joshqin',
-    crypt('xn-9t4b11yi5a', gen_salt('bf'))
+    'javohir',
+    crypt('12345678', gen_salt('bf'))
   );
 
--- categories
 insert into
   categories(category_name)
 values
@@ -29,7 +26,6 @@ values
   ('Biznes'),
   ('Ta''lim');
 
--- sub_categories
 insert into
   sub_categories(sub_category_name, category_id)
 values
@@ -42,7 +38,6 @@ values
   ('Matematika', 4),
   ('Fizika', 4);
 
--- organizers
 insert into
   organizers(
     organizer_name,
@@ -51,6 +46,7 @@ insert into
     organizer_phone_stuck,
     user_id
   )
+
 values
   (
     'Alisher Isaev',
@@ -64,17 +60,16 @@ values
     'Biznesmen',
     '998908050447',
     '998712980777',
-    1
+    2
   ),
   (
     'Jahongir G''ulomov',
     'Grafik dizayner',
     '998908050447',
     '998712980777',
-    2
+    3
   );
 
--- conferences
 insert into
   conferences(
     conference_date,
@@ -106,7 +101,6 @@ values
     'active'
   );
 
--- conference_links
 insert into
   conference_links(conference_link, conference_id)
 values
@@ -114,7 +108,6 @@ values
   ('https://', 2),
   ('https://', 1);
 
--- posts
 insert into
   posts(post_title, post_description, conference_id)
 values
@@ -137,7 +130,6 @@ values
     3
   );
 
--- post_bodys
 insert into
   post_bodys(post_body_text, post_id)
 values
@@ -187,7 +179,6 @@ values
     3
   );
 
--- post_images
 insert into
   post_images(post_image_link, post_id)
 values

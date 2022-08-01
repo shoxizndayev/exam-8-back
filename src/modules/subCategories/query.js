@@ -20,51 +20,36 @@ const GET = `
 `;
 
 const POST = `
-  insert into
-    categories(category_name)
-  values
-    ($1)
-  returning *;
+  insert into categories(category_name) values ($1) returning *;
 `;
 
 const PUT = `
-  update
-    categories
-  set
-    category_name = $2
+  update categories set category_name = $2
   where
     status = 'active'
-    and category_id = $1 
+    and 
+    category_id = $1 
   returning *;
 `;
 
 const DELETE = `
-  update
-    categories
-  set
+  update categories set
     status = 'deleted'
-  where
-    category_id = $1 
+  where category_id = $1 
   returning *;
 `;
 
 const CHECK = `
-  select
-    *
-  from 
-    categories
-  where 
+  select * from categories where 
     category_name = $1
-    and status = 'deleted';
+    and 
+    status = 'deleted';
 `;
 
 const POSTDELETED = `
-  update
-    categories
-  set
+  update categories set
     status = 'active'
-  where
-    category_id = $1 
+  where category_id = $1 
   returning *;
 `;
 

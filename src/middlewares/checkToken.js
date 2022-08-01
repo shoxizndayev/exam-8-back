@@ -8,13 +8,13 @@ export default (req, res, next) => {
     let { token } = req.headers;
 
     if (!token) {
-      return next(new ForbiddenError(403, "token required"));
+      return next(new ForbiddenError(404, "token required"));
     }
 
     let { userId, adminId } = jwt.verify(token);
 
     if (req.url == "/conferences/status/:conferenceId" || req.url.includes("admins")) {
-      if (!adminId) return next(new ForbiddenError(403, "only admin can do this"));
+      if (!adminId) return next(new ForbiddenError(404, "you are not an admin"));
 
       req.adminId = adminId;
     }
@@ -23,6 +23,6 @@ export default (req, res, next) => {
 
     return next();
   } catch (error) {
-    return next(new ForbiddenError(403, error.message));
+    return next(new ForbiddenError(404, error.message));
   }
 };
